@@ -47,6 +47,9 @@ const convertToPostFix=()=>{
             stack.push(arr[i]);
         }
         else if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
+            if(output[output.length-1]=='+' ||output[output.length-1]=='-' ||output[output.length-1]=='*' ||output[output.length-1]=='/'){
+                alert('Thappor chinos? thik input de')
+            }
             if(arr[i]=='+' ||arr[i]=='-'){
                 if(stack[stack.length-1]=='*' ||stack[stack.length-1]=='/' ||stack[stack.length-1]=='+' ||stack[stack.length-1]=='-'){
                     let x=stack.pop()
