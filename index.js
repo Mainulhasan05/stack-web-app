@@ -45,6 +45,14 @@ const convertToPostFix=()=>{
     td3.innerText=stack
     // end
         if(arr[i]=='('){
+            if(i!=0 && !(arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/' || arr[i-1]=='(')){
+                tbody.className='bg-warning'
+                tbody.innerText=''
+                output=''
+                alert('Thappor chinos? thik input de')
+                
+                break;
+            }
             stack.push(arr[i]);
         }
         else if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
@@ -79,10 +87,25 @@ const convertToPostFix=()=>{
             output+=arr[i]
         }
         else if(arr[i]==')'){
+            if(stack.length==0){
+                tbody.className='bg-warning'
+                tbody.innerText=''
+                output=''
+                alert('Thappor chinos? thik input de')
+            }
             while(stack[stack.length-1]!='('){
+                if(stack.length==0){
+                    tbody.className='bg-warning'
+                    tbody.innerText=''
+                    output=''
+                    
+                    alert('Thappor chinos? thik input de')
+                    break;
+                }
                 const operator=stack.pop()
                 output+=operator
             }
+            stack.pop()
             
             
         }
@@ -105,7 +128,7 @@ const convertToPostFix=()=>{
             td2=document.createElement('td')
             td3=document.createElement('td')
             let x=stack.pop();
-            
+            alert('stack '+stack.length)
             output+=x;
                 td1.innerText=''
                 td2.innerText=output
