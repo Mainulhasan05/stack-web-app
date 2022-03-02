@@ -1,4 +1,12 @@
 var stack=[]
+const input1=document.getElementById('input')
+
+input1.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("btn").click();
+    }
+  });
 const convertToPostFix=()=>{
     let input=document.getElementById('input').value
     const inputtext=document.getElementById('inputtext')
@@ -11,6 +19,7 @@ const convertToPostFix=()=>{
     output=''
 
     tbody=document.getElementById('tbody')
+    tbody.innerText=''
     // tr=document.createElement('tr')
     // td1=document.createElement('td')
     // td2=document.createElement('td')
@@ -34,27 +43,69 @@ const convertToPostFix=()=>{
     td2.innerText=output
     td3.innerText=stack
     // end
-        if(arr[i]=='(' ||arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
+        if(arr[i]=='('){
             stack.push(arr[i]);
+        }
+        else if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
+            if(arr[i]=='+' ||arr[i]=='-'){
+                if(stack[stack.length-1]=='*' ||stack[stack.length-1]=='/' ||stack[stack.length-1]=='+' ||stack[stack.length-1]=='-'){
+                    let x=stack.pop()
+                    output+=x
+                }
+                stack.push(arr[i])
+            }
+            else{
+                if(stack[stack.length-1]=='*' ||stack[stack.length-1]=='/'){
+                    let x=stack.pop()
+                    output+=x
+                }
+                stack.push(arr[i])
+            }
         }
         else if(arr[i]>='A' && arr[i]<='Z'){
             output+=arr[i]
             console.log(output)
         }
         else if(arr[i]==')'){
-            const operator=stack.pop()
-            output+=operator
+            while(stack[stack.length-1]!='('){
+                const operator=stack.pop()
+                output+=operator
+            }
+            
             
         }
         td1.innerText=arr[i]
         td2.innerText=output
         td3.innerText=stack
+        
         // adding end
         tr.appendChild(td1)
         tr.appendChild(td2)
         tr.appendChild(td3)
         tbody.appendChild(tr)
     }
+    if(stack.length!=0){
+        while(stack.length!=0 && stack[stack.length-1]!='('){
+    tr=document.createElement('tr')
+    td1=document.createElement('td')
+    td2=document.createElement('td')
+    td3=document.createElement('td')
+    let x=stack.pop();
+    console.log("poped  "+x)
+    output+=x;
+        td1.innerText=''
+        td2.innerText=output
+        td3.innerText=stack
+
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+        tbody.appendChild(tr)
+            
+        }
+    }
+
     // answer.innerText=output
 }
 
