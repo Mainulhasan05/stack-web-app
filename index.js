@@ -52,7 +52,7 @@ const convertToPostFix=()=>{
             // if(output[output.length-1]=='+' ||output[output.length-1]=='-' ||output[output.length-1]=='*' ||output[output.length-1]=='/'){
             //     alert('Thappor chinos? thik input de')
             // }
-            if(i==0 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
+            if(i==0 || i==arr.length-1 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
@@ -77,7 +77,6 @@ const convertToPostFix=()=>{
         }
         else if((arr[i]>='A' && arr[i]<='Z') ||(arr[i]>='0' && arr[i]<='9')){
             output+=arr[i]
-            console.log(output)
         }
         else if(arr[i]==')'){
             while(stack[stack.length-1]!='('){
@@ -98,30 +97,34 @@ const convertToPostFix=()=>{
         tbody.appendChild(tr)
     }
     if(stack.length!=0){
-        while(stack.length!=0 && stack[stack.length-1]!='('){
-    tr=document.createElement('tr')
-    td1=document.createElement('td')
-    td2=document.createElement('td')
-    td3=document.createElement('td')
-    let x=stack.pop();
-    console.log("poped  "+x)
-    output+=x;
-        td1.innerText=''
-        td2.innerText=output
-        td3.innerText=stack
 
-
-        tr.appendChild(td1)
-        tr.appendChild(td2)
-        tr.appendChild(td3)
-        tbody.appendChild(tr)
+        while(stack.length!=0){
+        if(stack[stack.length-1]!='('){
+            tr=document.createElement('tr')
+            td1=document.createElement('td')
+            td2=document.createElement('td')
+            td3=document.createElement('td')
+            let x=stack.pop();
+            console.log("poped  "+x)
+            output+=x;
+                td1.innerText=''
+                td2.innerText=output
+                td3.innerText=stack
+        
+        
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tr.appendChild(td3)
+                tbody.appendChild(tr)
+        }
+        stack.pop()
             
         }
     }
+    stack=[]
 
     // answer.innerText=output
-    console.log(arr)
-    console.log(stack)
+    
 }
 
 const push=(item)=>{
