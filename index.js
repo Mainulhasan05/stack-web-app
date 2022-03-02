@@ -20,6 +20,7 @@ const convertToPostFix=()=>{
 
     tbody=document.getElementById('tbody')
     tbody.innerText=''
+    tbody.className='fs-3'
     // tr=document.createElement('tr')
     // td1=document.createElement('td')
     // td2=document.createElement('td')
@@ -51,7 +52,7 @@ const convertToPostFix=()=>{
             // if(output[output.length-1]=='+' ||output[output.length-1]=='-' ||output[output.length-1]=='*' ||output[output.length-1]=='/'){
             //     alert('Thappor chinos? thik input de')
             // }
-            if(arr.length==0 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
+            if(i==0 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
@@ -119,6 +120,8 @@ const convertToPostFix=()=>{
     }
 
     // answer.innerText=output
+    console.log(arr)
+    console.log(stack)
 }
 
 const push=(item)=>{
