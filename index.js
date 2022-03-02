@@ -105,7 +105,7 @@ const convertToPostFix=()=>{
             td2=document.createElement('td')
             td3=document.createElement('td')
             let x=stack.pop();
-            console.log("poped  "+x)
+            
             output+=x;
                 td1.innerText=''
                 td2.innerText=output
