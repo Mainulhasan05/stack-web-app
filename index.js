@@ -9,9 +9,31 @@ const convertToPostFix=()=>{
     let length=input.length
 
     output=''
+
+    tbody=document.getElementById('tbody')
+    // tr=document.createElement('tr')
+    // td1=document.createElement('td')
+    // td2=document.createElement('td')
+    // td3=document.createElement('td')
+    // td1.innerText='Mainul'
+    // td2.innerText='Hasan'
+    // td3.innerText='Rifat'
+    // tr.appendChild(td1)
+    // tr.appendChild(td2)
+    // tr.appendChild(td3)
+    // tbody.appendChild(tr)
     // (A+B)/C-(B-C)
     arr=input.split('');
     for(i=0; i<length; i++){
+    tr=document.createElement('tr')
+    td1=document.createElement('td')
+    td2=document.createElement('td')
+    td3=document.createElement('td')
+    // add data
+    td1.innerText=arr[i]
+    td2.innerText=output
+    td3.innerText=stack
+    // end
         if(arr[i]=='(' ||arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
             stack.push(arr[i]);
         }
@@ -24,6 +46,14 @@ const convertToPostFix=()=>{
             output+=operator
             
         }
+        td1.innerText=arr[i]
+        td2.innerText=output
+        td3.innerText=stack
+        // adding end
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+        tbody.appendChild(tr)
     }
     answer.innerText=output
 }
