@@ -88,7 +88,7 @@ const convertToPostFix=()=>{
         }
         td1.innerText=arr[i]
         td2.innerText=output
-        td3.innerText=stack
+        td3.innerText=stack.toString().replaceAll(',','')
         
         // adding end
         tr.appendChild(td1)
@@ -109,7 +109,7 @@ const convertToPostFix=()=>{
             output+=x;
                 td1.innerText=''
                 td2.innerText=output
-                td3.innerText=stack
+                td3.innerText=stack.toString().replaceAll(',','')
         
         
                 tr.appendChild(td1)
