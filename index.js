@@ -52,6 +52,7 @@ const convertToPostFix=()=>{
             //     alert('Thappor chinos? thik input de')
             // }
             if(arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
+                tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
                 alert('Thappor chinos? thik input de')
