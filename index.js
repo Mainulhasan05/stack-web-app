@@ -51,7 +51,7 @@ const convertToPostFix=()=>{
             // if(output[output.length-1]=='+' ||output[output.length-1]=='-' ||output[output.length-1]=='*' ||output[output.length-1]=='/'){
             //     alert('Thappor chinos? thik input de')
             // }
-            if(arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
+            if(arr.length==0 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
