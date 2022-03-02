@@ -55,7 +55,7 @@ const convertToPostFix=()=>{
         tr.appendChild(td3)
         tbody.appendChild(tr)
     }
-    answer.innerText=output
+    // answer.innerText=output
 }
 
 const push=(item)=>{
