@@ -128,7 +128,7 @@ const convertToPostFix=()=>{
             td2=document.createElement('td')
             td3=document.createElement('td')
             let x=stack.pop();
-            alert('stack '+stack.length)
+            
             output+=x;
                 td1.innerText=''
                 td2.innerText=output
@@ -140,7 +140,10 @@ const convertToPostFix=()=>{
                 tr.appendChild(td3)
                 tbody.appendChild(tr)
         }
-        stack.pop()
+        else{
+            stack.pop()
+        }
+        
             
         }
     }
