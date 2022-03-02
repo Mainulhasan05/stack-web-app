@@ -49,7 +49,7 @@ const convertToPostFix=()=>{
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
-                alert('Thappor chinos? thik input de')
+                alert('Please Check Your Input')
                 
                 break;
             }
@@ -58,13 +58,13 @@ const convertToPostFix=()=>{
         else if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'){
             // console.log(output[output.length-1])
             // if(output[output.length-1]=='+' ||output[output.length-1]=='-' ||output[output.length-1]=='*' ||output[output.length-1]=='/'){
-            //     alert('Thappor chinos? thik input de')
+            //     alert('Please Check Your Input')
             // }
             if(i==0 || i==arr.length-1 ||arr[i-1]=='+'||arr[i-1]=='-'||arr[i-1]=='*'||arr[i-1]=='/'){
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
-                alert('Thappor chinos? thik input de')
+                alert('Please Check Your Input')
                 
                 break;
             }
@@ -91,7 +91,7 @@ const convertToPostFix=()=>{
                 tbody.className='bg-warning'
                 tbody.innerText=''
                 output=''
-                alert('Thappor chinos? thik input de')
+                alert('Please Check Your Input')
             }
             while(stack[stack.length-1]!='('){
                 if(stack.length==0){
@@ -99,7 +99,7 @@ const convertToPostFix=()=>{
                     tbody.innerText=''
                     output=''
                     
-                    alert('Thappor chinos? thik input de')
+                    alert('Please Check Your Input')
                     break;
                 }
                 const operator=stack.pop()
