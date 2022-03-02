@@ -75,7 +75,7 @@ const convertToPostFix=()=>{
                 stack.push(arr[i])
             }
         }
-        else if(arr[i]>='A' && arr[i]<='Z'){
+        else if((arr[i]>='A' && arr[i]<='Z') ||(arr[i]>='0' && arr[i]<='9')){
             output+=arr[i]
             console.log(output)
         }
